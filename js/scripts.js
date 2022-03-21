@@ -36,5 +36,9 @@ for (let i = 0; i < pokemonList.length; i++) {
 	for (let j = 1; j < pokemonList[i]["types"].length; j++) {
 		document.write(", " + pokemonList[i].types[j]);
 	}
-	document.write(".)<br>");
+	document.write(".)");
+	if (pokemonList[i].height > 1.5) {
+		document.write(" - Wow, that's big!");
+	}
+	document.write("<br>");
 }
