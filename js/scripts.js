@@ -1,3 +1,4 @@
+// Listing pokemons and their features
 let pokemonList = [
 	{
 		name: "Bulbasaur",
@@ -26,9 +27,12 @@ let pokemonList = [
 	}
 ];
 
+// Loop to list all the pokemons on the page
 for (let i = 0; i < pokemonList.length; i++) {
 	document.write("Name: " + pokemonList[i].name + " (Height: " + pokemonList[i].height + ".");
 	document.write(" Types: " + pokemonList[i].types[0]);
+	
+	// If more than one "type", loop to list all of them
 	for (let j = 1; j < pokemonList[i]["types"].length; j++) {
 		document.write(", " + pokemonList[i].types[j]);
 	}
