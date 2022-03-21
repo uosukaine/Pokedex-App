@@ -1,4 +1,4 @@
-var pokemonList = [
+let pokemonList = [
 	{
 		name: "Bulbasaur",
 		height: 2,
@@ -7,17 +7,17 @@ var pokemonList = [
 	{
 		name: "Charmander",
 		height: 2,
-		types: "fire"
+		types: ["fire"]
 	},
 	{
 		name: "Squirtle",
 		height: 1,
-		types: "water"
+		types: ["water"]
 	},
 	{
 		name: "Caterpie",
 		height: 1,
-		types: "bug"
+		types: ["bug"]
 	},
 	{
 		name: "Weedle",
@@ -25,4 +25,12 @@ var pokemonList = [
 		types: ["bug", "poison"]
 	}
 ];
-console.log(pokemonList);
+
+for (let i = 0; i < pokemonList.length; i++) {
+	document.write("Name: " + pokemonList[i].name + " (Height: " + pokemonList[i].height + ".");
+	document.write(" Types: " + pokemonList[i].types[0]);
+	for (let j = 1; j < pokemonList[i]["types"].length; j++) {
+		document.write(", " + pokemonList[i].types[j]);
+	}
+	document.write(".)<br>");
+}
