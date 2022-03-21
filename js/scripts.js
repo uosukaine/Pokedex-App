@@ -36,6 +36,8 @@ for (let i = 0; i < pokemonList.length; i++) {
 	for (let j = 1; j < pokemonList[i]["types"].length; j++) {
 		document.write(", " + pokemonList[i].types[j]);
 	}
+	
+	// Conditional text if Pokemon size is over 1.5
 	document.write(".)");
 	if (pokemonList[i].height > 1.5) {
 		document.write(" - Wow, that's big!");
