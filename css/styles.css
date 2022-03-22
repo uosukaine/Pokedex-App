@@ -1,6 +1,7 @@
 :root {
 	--background-color: #ffcb05;
 	--body-text-color: #3466af;
+	--highlight-text-color: #ff0000;
 }
 
 body {
@@ -11,4 +12,8 @@ body {
 	font-size: 18px;
 	line-height: 2;
 	margin: 10px;
+}
+
+.big_pokemon {
+	color: var(--highlight-text-color);
 }

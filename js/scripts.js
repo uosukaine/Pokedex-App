@@ -40,7 +40,7 @@ for (let i = 0; i < pokemonList.length; i++) {
 	// Conditional text if Pokemon size is over 1.5
 	document.write(".)");
 	if (pokemonList[i].height > 1.5) {
-		document.write(" - Wow, that's big!");
+		document.write("<span class=big_pokemon> - Wow, that's big!</span>");
 	}
 	document.write("<br>");
 }
