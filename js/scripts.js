@@ -27,20 +27,16 @@ let pokemonList = [
 	}
 ];
 
+
 // Loop to list all the pokemons on the page
-for (let i = 0; i < pokemonList.length; i++) {
-	document.write("Name: " + pokemonList[i].name + " (Height: " + pokemonList[i].height + ".");
-	document.write(" Types: " + pokemonList[i].types[0]);
-	
-	// If more than one "type", loop to list all of them
-	for (let j = 1; j < pokemonList[i]["types"].length; j++) {
-		document.write(", " + pokemonList[i].types[j]);
-	}
+pokemonList.forEach (function(pokemon) {
+	document.write("Name: " + pokemon.name + " (Height: " + pokemon.height + ". Types: " + pokemon.types + ".)");
 	
 	// Conditional text if Pokemon size is over 1.5
-	document.write(".)");
-	if (pokemonList[i].height > 1.5) {
+	if (pokemon.height > 1.5) {
 		document.write("<span class=big_pokemon> - Wow, that's big!</span>");
 	}
 	document.write("<br>");
-}
+});
+	
+
