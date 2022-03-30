@@ -11,6 +11,7 @@
 	box-sizing: border-box;
 }
 
+/* Body formating */
 body {
 	background: var(--background-color);
 	color: var(--body-text-color);
@@ -26,15 +27,18 @@ body {
 	width: auto;
 }
 
+/* Highlight color formating for "wow..." text*/
 .big_pokemon {
 	color: var(--highlight-text-color);
 }
 
+/* Pokemon button list formating */
 .pokemon-list{
 	list-style: none;
 	justify-content: center;
 }
 
+/* Pokemon button formating */
 .pokemon-button {
 	border-color: var(--button-border-color);
 	background-color: var(--button-background-color);
@@ -50,6 +54,7 @@ body {
 	font-size: 14px;
 }
 
+/* Pokemon button hover formating */
 .pokemon-button:hover {
 	border-color: var(--button-border-color);
 	background-color: var(--button-border-color);
