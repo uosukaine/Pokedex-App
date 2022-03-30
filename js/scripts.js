@@ -35,26 +35,35 @@ let pokemonRepository = (function () {
 
 	// Defining add function to add to pokemonList
 	function add(pokemon) {
-		pokemonList.push(pokemon);
+		if (typeof pokemon === "object") {
+			pokemonList.push(pokemon);
+		} else {
+			document.write("Must be an object")
+		}
+	}
+
+	function addListItem(pokemon) {
+		let pokemonListCall = document.querySelector(".pokemon-list");
+		let listItem = document.createElement("li");
+		let button = document.createElement("button");
+		button.innerText = pokemon.name;
+		button.classList.add("pokemon-button");
+		listItem.appendChild(button);
+		pokemonListCall.appendChild(listItem);
 	}
 
 	// Returning getAll and add functions
 	return {
 		getAll: getAll,
-		add: add
+		add: add,
+		addListItem: addListItem
 	}
 
 })();
 
 // Loop to list all the pokemons on the page
 pokemonRepository.getAll().forEach (function(pokemon) {
-	document.write("Name: " + pokemon.name + " (Height: " + pokemon.height + ". Types: " + pokemon.types + ".)");
-	
-	// Conditional text if Pokemon size is over 1.5
-	if (pokemon.height > 1.5) {
-		document.write("<span class=big_pokemon> - Wow, that's big!</span>");
-	}
-	document.write("<br>");
+	pokemonRepository.addListItem(pokemon);
 });
 	
 
