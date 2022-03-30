@@ -43,16 +43,31 @@ let pokemonRepository = (function () {
 	}
 
 	function addListItem(pokemon) {
+		// Creating necessary variables
 		let pokemonListCall = document.querySelector(".pokemon-list");
 		let listItem = document.createElement("li");
 		let button = document.createElement("button");
+		
+		// Adding format and features to buttons
 		button.innerText = pokemon.name;
 		button.classList.add("pokemon-button");
+		
+		// Changing DOM hierarchy
 		listItem.appendChild(button);
 		pokemonListCall.appendChild(listItem);
+		
+		// Button event listener on click
+		button.addEventListener('click', function () {
+			showDetails(pokemon.name);
+		});
 	}
 
-	// Returning getAll and add functions
+	// Function for click
+	function showDetails(pokemon) {
+		console.log(pokemon);
+	}
+
+	// Returning getAll, add and addListItem functions
 	return {
 		getAll: getAll,
 		add: add,
@@ -61,7 +76,7 @@ let pokemonRepository = (function () {
 
 })();
 
-// Loop to list all the pokemons on the page
+// forEach loop to list all the pokemons on the page
 pokemonRepository.getAll().forEach (function(pokemon) {
 	pokemonRepository.addListItem(pokemon);
 });
