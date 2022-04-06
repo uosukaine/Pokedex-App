@@ -76,31 +76,49 @@ let pokemonRepository = (function () {
   	
   	// Showing modal when clicking a pokemon button
   	function showDetails(pokemon) {
-  		console.log(pokemon);
-  		pokemonRepository.loadDetails(pokemon).then(function (title, text) {
-  		
-	  		modalContainer.innerHTML = "";
-	    	let modal = document.createElement("div");
-	    	modal.classList.add("modal");
+  		loadDetails(pokemon).then(function () {
+  			showModal(pokemon);
+  		});	
+  	}
+
+  	function showModal(item) {
+  		modalContainer.innerHTML = "";
+    	let modal = document.createElement("div");
+    	modal.classList.add("modal");
+  
+    	let closeButtonElement = document.createElement("button");
+	    closeButtonElement.classList.add("modal-close");
+	    closeButtonElement.innerText = "X";
+	    closeButtonElement.addEventListener("click", hideDetails);
+  
+	    let titleElement = document.createElement("h1");
+	    titleElement.innerText = item.name;
 	  
-	    	let closeButtonElement = document.createElement("button");
-		    closeButtonElement.classList.add("modal-close");
-		    closeButtonElement.innerText = "X";
-		    closeButtonElement.addEventListener("click", hideDetails);
-	  
-		    let titleElement = document.createElement("h1");
-		    titleElement.innerText = title;
-		  
-		    let contentElement = document.createElement("p");
-		    contentElement.innerText = text;
-	  
-		    modal.appendChild(closeButtonElement);
-		    modal.appendChild(titleElement);
-		    modal.appendChild(contentElement);
-		    modalContainer.appendChild(modal);
-		    
-		    modalContainer.classList.add("is-visible");
-		});
+	    let contentElement = document.createElement("p");
+	    contentElement.innerText = item.height;
+
+	    let typesElement = document.createElement("p");
+	    if (item.types.length > 0) {
+       		let types = "";
+       		item.types.forEach(function(i) {
+        		console.log(i)
+        		types += i.type.name + " "; 
+    		});    	
+      	typesElement.innerText = "type: " + types;
+
+      	let imageElement = document.createElement("img");
+      	imageElement.classList.add("image-element");
+      	imageElement.src = item.imageUrl;
+      	}
+
+  	    modal.appendChild(closeButtonElement);
+	    modal.appendChild(titleElement);
+	    modal.appendChild(contentElement);
+	    modal.appendChild(typesElement);
+	    modal.appendChild(imageElement);
+	    modalContainer.appendChild(modal);
+	    
+	    modalContainer.classList.add("is-visible");
 	}
 
 	let dialogPromiseReject;
@@ -124,6 +142,8 @@ let pokemonRepository = (function () {
       		hideDetails();
     	}
   	});
+
+  	
 
 	// Returning getAll, add and addListItem functions
 	return {
