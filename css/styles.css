@@ -60,11 +60,12 @@ body {
 	cursor: pointer;
 }
 
+/* Hiding modal */
 #modal-container {
   display: none;
-
 }
 
+/* Modal styling when visible */
 #modal-container.is-visible {
   display: block;
   position: fixed;
@@ -97,6 +98,7 @@ body {
   text-align: left;
 }
 
+/* Modal closing button styling */
 .modal-close {
   float: right;
   -webkit-appearance: none;
@@ -107,6 +109,7 @@ body {
   text-decoration: none;
 }
 
+/* Modal closing button styling when hovering over it*/
 .modal-close:hover {
   float: right;
   -webkit-appearance: none;
