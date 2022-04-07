@@ -86,17 +86,21 @@ let pokemonRepository = (function () {
     	let modal = document.createElement("div");
     	modal.classList.add("modal");
   
+  		// Close button on modal
     	let closeButtonElement = document.createElement("button");
 	    closeButtonElement.classList.add("modal-close");
 	    closeButtonElement.innerText = "X";
 	    closeButtonElement.addEventListener("click", hideDetails);
-  
+  		
+  		// Pokemon name on modal
 	    let titleElement = document.createElement("h1");
 	    titleElement.innerText = item.name;
-	  
+	  	
+	  	// Pokemon height text on modal
 	    let contentElement = document.createElement("p");
 	    contentElement.innerText = "height: " + item.height;
 
+	    // Pokemon types text on modal
 	    let typesElement = document.createElement("p");
 	    if (item.types.length > 0) {
        		let types = "";
@@ -107,6 +111,7 @@ let pokemonRepository = (function () {
       	typesElement.innerText = "type: " + types;
       	}
 
+      	// Pokemon image on modal
       	let imageElement = document.createElement("img");
       	imageElement.classList.add("image-element");
       	imageElement.src = item.imageUrl;
@@ -143,8 +148,6 @@ let pokemonRepository = (function () {
     	}
   	});
 
-  	
-
 	// Returning getAll, add and addListItem functions
 	return {
 		getAll: getAll,
@@ -155,7 +158,6 @@ let pokemonRepository = (function () {
 		showDetails: showDetails,
 		hideDetails: hideDetails
 	}
-
 })();
 
 // Loading data
