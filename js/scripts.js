@@ -95,7 +95,7 @@ let pokemonRepository = (function () {
 	    titleElement.innerText = item.name;
 	  
 	    let contentElement = document.createElement("p");
-	    contentElement.innerText = item.height;
+	    contentElement.innerText = "height: " + item.height;
 
 	    let typesElement = document.createElement("p");
 	    if (item.types.length > 0) {
@@ -105,12 +105,12 @@ let pokemonRepository = (function () {
         		types += i.type.name + " "; 
     		});    	
       	typesElement.innerText = "type: " + types;
+      	}
 
       	let imageElement = document.createElement("img");
       	imageElement.classList.add("image-element");
       	imageElement.src = item.imageUrl;
-      	}
-
+      	
   	    modal.appendChild(closeButtonElement);
 	    modal.appendChild(titleElement);
 	    modal.appendChild(contentElement);
