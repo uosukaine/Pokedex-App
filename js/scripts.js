@@ -12,8 +12,8 @@ let pokemonRepository = (function () {
 	// Defining add function to add to pokemonList
 	function add(pokemon) {
 		if (
-			typeof pokemon === "object" && 
-			"name" in pokemon && 
+			typeof pokemon === "object" &&
+			"name" in pokemon &&
 			"detailsUrl" in pokemon
 		) {
 			pokemonList.push(pokemon);
@@ -82,12 +82,12 @@ let pokemonRepository = (function () {
       		console.error(e);
     	});
   	}
-  	
+
   	// Showing modal when clicking a pokemon button
   	function showDetails(pokemon) {
   		loadDetails(pokemon).then(function () {
   			showModal(pokemon);
-  		});	
+  		});
   	}
 
   	function showModal(item) {
@@ -96,7 +96,7 @@ let pokemonRepository = (function () {
         while (modalBody.firstChild) {
         	modalBody.removeChild(modalBody.firstChild);
         }
-       
+
         modalTitle.innerText = item.name;
 
         // Defining height text
