@@ -1,6 +1,5 @@
 // Listing pokemons and their features in IIFE format
 let pokemonRepository = (function () {
-    let modalContainer = document.querySelector("#modal-container");
     let pokemonList = [];
     let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
@@ -47,7 +46,7 @@ let pokemonRepository = (function () {
         container.appendChild(row);
 
         //show pokemon details when button clicked
-        button.addEventListener("click", function (event) {
+        button.addEventListener("click", function () {
             showDetails(pokemon);
         });
     }
