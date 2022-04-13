@@ -8,7 +8,8 @@
 }
 
 * {
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 }
 
 /* Body formating */
@@ -20,8 +21,13 @@ body {
 	font-size: 18px;
 	line-height: 2;
 	margin: auto;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	flex-direction: column;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 	text-align: center;
 	width: auto;
 }
@@ -76,7 +82,6 @@ h1 {
 	width: auto;
 	padding-right: 15px;
 }
-
 /* Making modal responsive to smaller screen sizes*/
 @media all and (max-width: 768px) 
  {
