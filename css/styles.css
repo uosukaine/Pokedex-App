@@ -66,9 +66,15 @@ h1 {
 }
 
 /* resizing the image*/
-img {
+.image-element {
 	height: 200px;
 	width: auto;
+}
+
+#pokemon-logo {
+	height: 70px;
+	width: auto;
+	padding-right: 15px;
 }
 
 /* Making modal responsive to smaller screen sizes*/
@@ -99,12 +105,10 @@ img {
 
     .contentElement .typesElement {
     	font-size: 10px;
-    	ver
     }
 
     .modal {
     	width: auto;
-
     }
 
     .btn {
