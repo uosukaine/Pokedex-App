@@ -121,7 +121,7 @@ let pokemonRepository = (function () {
         // Defining image
         let imageElement = document.createElement("img");
         imageElement.setAttribute("src", item.imageUrl);
-        imageElement.setAttribute("alt", "picture of: " + item.name);
+        imageElement.setAttribute("alt", "picture of " + item.name);
         imageElement.setAttribute("class", "image-element");
 
         // Adding elements to modalBody
