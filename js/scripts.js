@@ -27,11 +27,11 @@ let pokemonRepository = (function () {
 
         //create row div and add necessary classes
         let row = document.createElement("div");
-        row.classList.add("row", "align-content-center", "list-group-item");
+        row.classList.add("d-flex", "flex-row", "align-content-center", "list-group-item");
 
         //create column div and add necessary classes
         let col = document.createElement("div");
-        col.classList.add("col", "d-flex", "justify-content-center");
+        col.classList.add("col", "d-inline-flex", "justify-content-around", "col-lg-4", "col-sm-12", "col-md-6");
 
         //create button and add necessary classes and attributes
         let button = document.createElement("button");
@@ -145,5 +145,45 @@ pokemonRepository.loadList().then(function () {
     // forEach loop to list all the pokemons on the page
     pokemonRepository.getAll().forEach(function (pokemon) {
         pokemonRepository.addListItem(pokemon);
+    });
+});
+
+//search function
+
+//clears search and re-displays list
+function resetSearch() {
+  $('.group-list-item').each((index, element) => {
+    $(element).show();
+  });
+  $('input').val('');
+}
+
+const searchBar = document.querySelector('#search-button');
+
+//search and hide non-hits
+$('form').on('submit', function (e) {
+  e.preventDefault();
+  //get search value
+  const searchVal = $('input').val().toLowerCase();
+
+  if (searchVal === '') {
+    alert('Must enter a value to search');
+    resetSearch();
+    return;
+  }
+
+  $('.list-group-item').each((index, element) => {
+    $(element).show();
+    if ($(element).text().toLowerCase().indexOf(searchVal) > -1) {
+    } else {
+      $(element).hide();
+    }
+  });
+});
+
+$('.clear-search').click(() => {
+  resetSearch();
+  $('.list-group-item').each((index, element) => {
+    $(element).show();
     });
 });
